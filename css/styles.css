@@ -1,0 +1,243 @@
+/* General styling */
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #121212;
+    color: #f0f0f0;
+    padding: 0 20px;
+}
+
+/* Scroll progress bar */
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: #352cbd;
+    z-index: 100;
+}
+
+/* Header */
+header {
+    background-color: #1f1f1f;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header .logo img {
+    height: 60px;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #222;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #b68eff;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #b68eff;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+
+/* Hero section */
+section h1 {
+    font-size: 36px;
+    color: #b68eff;
+    margin-top: 30px;
+}
+
+section p {
+    font-size: 18px;
+    color: #cccccc;
+}
+
+/* About Us section */
+.about-us-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.about-us-text {
+    width: 100%;
+    max-width: 600px;
+}
+
+.about-us-card {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-us-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.mySlides-about {
+    display: none;
+}
+
+/* Slideshow animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Events section */
+.events-section {
+    padding: 50px 20px;
+    color: #f0f0f0;
+}
+
+.event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.event-info {
+    width: 100%;
+    max-width: 500px;
+}
+
+.event-title {
+    font-size: 28px;
+    color: #b68eff;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.event-description {
+    font-size: 16px;
+    color: #dddddd;
+}
+
+.event-date {
+    font-size: 13px;
+    color: #bbbbbb;
+    font-style: italic;
+}
+
+.slideshow-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.mySlides1, .mySlides2 {
+    display: none;
+}
+
+.mySlides1 img, .mySlides2 img {
+    width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    background-color: #121212;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+footer img {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #222;
+        width: 100%;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .about-us-container {
+        flex-direction: column;
+    }
+
+    .about-us-card, .about-us-text {
+        width: 100%;
+    }
+
+    .event {
+        flex-direction: column;
+    }
+
+    .slideshow-container img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-title {
+        font-size: 22px;
+    }
+
+    .event-description {
+        font-size: 14px;
+    }
+
+    .mySlides1 img, .mySlides2 img {
+        height: 150px;
+    }
+}
