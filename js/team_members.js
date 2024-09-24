@@ -1,5 +1,5 @@
 // Fetching data from the JSON file
-fetch('../assets/js/members.json')
+fetch('../js/members.json')
     .then(response => response.json())
     .then(data => {
         // Loop through each department in the data
