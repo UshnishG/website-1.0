@@ -5,56 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recruitments</title>
+    <!-- Removed Google Fonts Link -->
     <link rel="stylesheet" href="../css/recruitment.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
-<body class="fira-code-dark-mode-500">
-    
-    <div class="recruitmentPage">
-        <header>
-            <div class="logo">
-                <img src="../imgs/logo.png" alt="Futurix Logo" style="height: 60px;">
+<body style="font-family: 'Courier New', Courier, monospace;"> <!-- Set default font here -->
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../imgs/logo.png" alt="Futurix Logo">
+            </a>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="recruitments.html">Recruitments</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <main>
+        <div class="content-section">
+            <div class="image-section">
+                <img src="https://placehold.co/600x400" alt="Recruitment Image" class="recruitment-image">
             </div>
-        </header>
-    
-        <!-- Navbar -->
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="recruitments.html">Recruitments</a></li>
-            </ul>
-        </nav>
-        <div class="content">
-            <div class="recruitmentleft">
-                <a id="formLink" href="">Coming Soon!</a>
-                <p>Till then, look at the events we organized in the past!</p>
-                <a id="navigate" href="index.html#events">See events</a>
-            </div>
-            <div class="recruitmentright">
-                <img src="https://placehold.co/400x400" alt="">
+            <div class="text-section">
+                <h2>Join the Futurix Family</h2>
+                <p>We are looking for passionate individuals to be a part of our team and create aindividuals to be a part of our team and create a brighter future together. Be part of our dynamic and innovaative community!</p>
+                <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" class="join-btn">Join Us Now</a>
             </div>
         </div>
-        <footer>
-            <div class="footer-container">
-                <a href="https://www.linkedin.com/company/futurix-srmist/mycompany/" class="social-logo">
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Social Icons (moved to left or right) -->
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/futurix-srmist/mycompany/" target="_blank">
                     <img src="../imgs/linkedin.png" alt="LinkedIn">
                 </a>
-                <div class="footer-logo">
-                    <img src="../imgs/logo.png" alt="Futurix Logo">
-                </div>
-                <a href="https://www.linkedin.com/in/sanskar-36754a159" class="social-logo">
+                
+                <a href="https://www.instagram.com/futurix.ctech?igsh=NmEzZmcxYTZ3YXM5" target="_blank">
                     <img src="../imgs/instagram.png" alt="Instagram">
                 </a>
             </div>
-            <p>&copy; 2024 Futurix. All rights reserved.</p>
-        </footer>
-        
-    </div>
+    
+            <!-- Footer Logo -->
+            <div class="footer-logo">
+                <img src="../imgs/logo.png" alt="Futurix Logo">
+            </div>
+        </div>
+    </footer>
+    
+
 </body>
 
 </html>
