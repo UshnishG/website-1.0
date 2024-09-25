@@ -11,31 +11,26 @@
 </head>
 
 <body>
-    <!-- Hamburger icon for mobile -->
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
     <!-- Scroll Progress Indicator -->
     <div id="progressBar"></div>
-
-    <!-- Header with logo -->
-    <header>
-        <div class="logo">
-            <img src="../imgs/logo.png" alt="Futurix Logo">
-        </div>
-    </header>
-
     <!-- Navbar -->
     <nav class="navbar">
-        <ul class="nav-links">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../imgs/logo.png" alt="Futurix Logo">
+            </a>
+        </div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about_us.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="recruitments.html">Recruitments</a></li>
         </ul>
+        <div class="hamburger" id="hamburger"></div>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <section>
@@ -110,23 +105,45 @@
             </div>
         </div>
 
-        <h4>More events upcoming. Stay tuned!!</h4>
+        <div class="event">
+            <div class="event-info">
+                <h2 class="event-title">LENS_LUMINA 1.0</h2>
+                <p class="event-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus leo et nunc lacinia maximus.
+                </p>
+                <p class="event-date">20th - 22nd March, 2024</p>
+            </div>
+            <div class="slideshow-container">
+                <div class="mySlides3 fade">
+                    <img src="../imgs/i7.jpg" alt="Event Image 1">
+                </div>
+                <div class="mySlides3 fade">
+                    <img src="../imgs/i8.jpg" alt="Event Image 2">
+                </div>
+            </div>
+        </div>
+
+        <h1>More events upcoming. Stay tuned!!</h1>
     </section>
 
-    <!-- Footer with logo -->
     <footer>
         <div class="footer-container">
-            <a href="https://www.linkedin.com/company/futurix-srmist/mycompany/" class="social-logo">
-                <img src="../imgs/linkedin.png" alt="LinkedIn">
-            </a>
+            <!-- Social Icons (moved to left or right) -->
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/futurix-srmist/mycompany/" target="_blank">
+                    <img src="../imgs/linkedin.png" alt="LinkedIn">
+                </a>
+                
+                <a href="https://www.instagram.com/futurix.ctech?igsh=NmEzZmcxYTZ3YXM5" target="_blank">
+                    <img src="../imgs/instagram.png" alt="Instagram">
+                </a>
+            </div>
+    
+            <!-- Footer Logo -->
             <div class="footer-logo">
                 <img src="../imgs/logo.png" alt="Futurix Logo">
             </div>
-            <a href="https://www.linkedin.com/in/sanskar-36754a159" class="social-logo">
-                <img src="../imgs/instagram.png" alt="Instagram">
-            </a>
         </div>
-        <p>&copy; 2024 Futurix. All rights reserved.</p>
     </footer>
     
 
