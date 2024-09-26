@@ -26,63 +26,49 @@ function scrollProgress() {
 }
 
 // Slideshow functionality for first set of slides
-let slideIndex1 = 0;
-let slideIndex2 = 0;
-let slideIndex3 = 0; // Separate index for the second slideshow
+let currentEvent = 1;
+let currentSlide = 0;
+const eventImages = {
+    1: ['../imgs/i1.jpg', '../imgs/i2.jpg', '../imgs/i3.jpg'],
+    2: ['../imgs/i5.jpg', '../imgs/i6.jpg'],
+    3: ['../imgs/i7.jpg', '../imgs/i8.jpg']
+};
 
-let slideIndexAbout = 0; // Index for the About Us slideshow
-showSlidesAbout(); // Start the slideshow
-showSlides1();
-showSlides2();
-showSlides3();
+// Open modal and display the first image
+function openModal(eventId) {
+    currentEvent = eventId;
+    currentSlide = 0;
+    displaySlides();
+    const modal = document.getElementById("imageModal");
+    modal.style.display = "block";
 
-
-function showSlidesAbout() {
-    let slides = document.getElementsByClassName("mySlides-about");
-    
-    // Hide all slides
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-
-    slideIndexAbout++; // Increment index
-    if (slideIndexAbout > slides.length) { slideIndexAbout = 1; } // Reset index if needed
-    slides[slideIndexAbout - 1].style.display = "block"; // Show the current slide
-
-    setTimeout(showSlidesAbout, 2000); // Change image every 2 seconds
+    // Close modal if clicked outside the image
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
 }
 
-// Function to display slides for the first slideshow
-function showSlides1() {
-    let slides = document.getElementsByClassName("mySlides1");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; // Hide all slides
-    }
-    slideIndex1++;
-    if (slideIndex1 > slides.length) { slideIndex1 = 1 } // Reset index
-    slides[slideIndex1 - 1].style.display = "block"; // Display current slide
-    setTimeout(showSlides1, 2000); // Change image every 2 seconds
+// Close modal
+function closeModal() {
+    const modal = document.getElementById("imageModal");
+    modal.style.display = "none";
 }
 
-// Function to display slides for the second slideshow
-function showSlides2() {
-    let slides = document.getElementsByClassName("mySlides2");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; // Hide all slides
+// Change slides (left or right navigation)
+function changeSlide(n) {
+    currentSlide += n;
+    if (currentSlide >= eventImages[currentEvent].length) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = eventImages[currentEvent].length - 1;
     }
-    slideIndex2++;
-    if (slideIndex2 > slides.length) { slideIndex2 = 1 } // Reset index
-    slides[slideIndex2 - 1].style.display = "block"; // Display current slide
-    setTimeout(showSlides2, 2000); // Change image every 2 seconds
+    displaySlides();
 }
 
-function showSlides3() {
-    let slides = document.getElementsByClassName("mySlides3");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; // Hide all slides
-    }
-    slideIndex3++;
-    if (slideIndex3 > slides.length) { slideIndex3 = 1 } // Reset index
-    slides[slideIndex3- 1].style.display = "block"; // Display current slide
-    setTimeout(showSlides3, 2000); // Change image every 2 seconds
+// Display the current slide
+function displaySlides() {
+    const container = document.getElementById("slides-container");
+    container.innerHTML = `<img src="${eventImages[currentEvent][currentSlide]}" alt="Event Image" class="modal-img">`;
 }
