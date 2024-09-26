@@ -1,11 +1,26 @@
 /* General styling */
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+/* General body and layout styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure the body and HTML take the full height of the viewport */
     font-family: 'Courier New', Courier, monospace;
     background-color: #121212;
     color: #f0f0f0;
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
 }
+/* Main Content Section */
+main {
+    flex-grow: 1; /* This ensures the main content stretches and pushes the footer to the bottom */
+    padding: 20px;
+}
+
 
 /* Scroll progress bar */
 #progressBar {
@@ -80,62 +95,6 @@ body {
     border-radius: 5px;
 }
 
-/* Hamburger icon for mobile */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-.hamburger span {
-    background-color: #fff;
-    height: 3px;
-    width: 100%;
-    display: block;
-    border-radius: 3px;
-}
-
-/* Mobile styling for navbar */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        z-index: 1000;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.9);
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 0;
-    }
-
-    .navbar li {
-        margin: 10px 0;
-    }
-}
-
 /* Hero section */
 section {
     padding: 50px 20px;   
@@ -152,6 +111,14 @@ section p {
     color: #cccccc;
 }
 
+/* Horizontal purple line styling */
+hr.purple-line {
+    border: 0;
+    height: 5px;
+    background: #b68eff;
+    margin: 40px 0;
+}
+
 /* About Us section */
 .about-us-container {
     display: flex;
@@ -163,160 +130,315 @@ section p {
 
 .about-us-text {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
+
+
 }
 
-.about-us-card {
-    width: 100%;
-    max-width: 300px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 10px 0;
-    background-color: #f9f9f9;
-    text-align: center;
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; /* End fully visible */
+    }
 }
 
-.about-us-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+.welcome-section {
+    text-align: center; /* Center align the content in the section */
 }
 
-.mySlides-about {
-    display: none;
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin-top: 20px; /* Space above the container */
 }
 
-/* Slideshow animation */
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
+.flashing-text {
+    margin-bottom: 20px; /* Space below the text */
+    font-size: 5em; /* Font size for the text */
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #1eaf43, #7226a8, #7f1ea8); /* Rainbow gradient */
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Make the text color transparent to show the gradient */
+    animation: flash 1s infinite; /* Apply flashing animation */
 }
 
-@keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.join-us-button {
+    display: inline-block; /* Inline block to allow padding and margins */
+    background-color: #a72af0; /* Button background color */
+    color: white; /* Button text color */
+    padding: 12px 20px; /* Padding inside the button */
+    border: none; /* Remove border */
+    border-radius: 6px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from the link */
+    font-size: 2.5em; /* Font size for the button */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    margin-top: 10px; /* Space above the button */
 }
+
+.flashing-text-container {
+    text-align: center; /* Center the text */
+    margin-top: 40px; /* Space above */
+    position: relative; /* For positioning the arrow */
+}
+
+.flashing-text {
+    font-size: 2em; /* Large font size */
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #1eaf43, #7226a8, #7f1ea8); /* Rainbow gradient */
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Make the text color transparent to show the gradient */
+    animation: flash 1s infinite; /* Apply flashing animation */
+    display: block; /* Display block to stack texts */
+    margin-bottom: 10px; /* Space between texts */
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0.5; /* Half visible */
+    }
+}
+
+
+
+.join-us-button:hover {
+    background-color: #9e3ed5; /* Change background color on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.join-us-button:active {
+    background-color: #7f1ea8; /* Darker color when active */
+    transform: scale(0.98); /* Scale down when clicked */
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0.5; /* Half visible */
+    }
+}
+
+
+.about-us-logo img.logo {
+    max-width: 300px; /* Set maximum width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    animation: slideIn 1s forwards; /* Apply the slide-in animation */
+}
+
+.about-us-logo img.logo:hover {
+    transform: scale(2.5); /* Slightly enlarge the logo */
+}
+
+/* Tooltip styles */
+.tooltip {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position relative to the logo */
+    background-color: rgba(178, 197, 183, 0.75); /* Semi-transparent background */
+    color: #000000; /* White text */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    top: 100%; /* Position below the logo */
+    left: 50%; /* Center it */
+    transform: translateX(-50%); /* Offset to center */
+    white-space: nowrap; /* Prevent text wrapping */
+    z-index: 10; /* Ensure it appears above other elements */
+    font-size: 29px;
+}
+
+.events-container {
+    display: flex; /* Use flexbox to arrange items */
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Space between event cards and flashing text */
+    margin-top: 20px; /* Space above the container */
+}
+
+.flashing-text-container {
+    text-align: center; /* Center the text */
+    margin-left: 20px; /* Space between event cards and flashing text */
+    position: relative; /* For positioning the arrow */
+}
+
+.flashing-text {
+    font-size: 2em; /* Large font size */
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #1eaf43, #7226a8, #7f1ea8); /* Rainbow gradient */
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Make the text color transparent to show the gradient */
+    animation: flash 1s infinite; /* Apply flashing animation */
+    display: block; /* Display block to stack texts */
+    margin-bottom: 10px; /* Space between texts */
+}
+
+.arrow-container {
+    position: absolute; /* Position it relative to the text */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset to center */
+    margin-top: 20px; /* Space between text and arrow */
+}
+
+.arrow {
+    font-size: 2em; /* Size of the arrow */
+    animation: moveArrow 1s infinite; /* Apply arrow animation */
+}
+
+@keyframes moveArrow {
+    0% {
+        transform: translateY(0); /* Initial position */
+    }
+    50% {
+        transform: translateY(-10px); /* Move up */
+    }
+    100% {
+        transform: translateY(0); /* Move back down */
+    }
+}
+
+
+/* Show tooltip on hover */
+.about-us-logo:hover .tooltip {
+    display: block; /* Show tooltip on hover */
+}
+
+.about-us-logo img.logo:hover {
+    transform: scale(1.8); /* Slightly enlarge on hover */
+}
+
 
 /* Events section */
-.events-section {
-    padding: 50px 20px;
-    color: #f0f0f0;
+.events-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0px; /* Add space between heading and cards */
 }
 
-.event {
+.events-section {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 10px;
-    margin: 40px 0;
     flex-wrap: wrap;
+    justify-content: flex-start; /* Align cards to the left */
+    gap: 20px; /* Adjust spacing between cards */
+    padding: 0 20px; /* Reduce side padding to reduce space */
+}
+
+.event-card {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content inside the card to the left */
+    justify-content: flex-start;
+    width: 500px;  /* Adjust width for rectangle/square look */
+    height: 500px; /* Adjust height to control rectangle shape */
+    background-color: #662ac7;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.event-card:hover {
+    transform: scale(1.05);
 }
 
 .event-info {
+    text-align: center;
+}
+
+.event-img {
     width: 100%;
-    max-width: 500px;
+    height: auto;
+    cursor: pointer;
 }
 
-.event-title {
-    font-size: 28px;
-    color: #b68eff;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
 
-.event-description {
-    font-size: 16px;
-    color: #dddddd;
-}
 
-.event-date {
-    font-size: 13px;
-    color: #bbbbbb;
-    font-style: italic;
-}
-
-/* Slideshow container styling */
-.slideshow-container-about {
-    position: relative;
-    max-width: 100%;
-    margin: auto; /* Center the slideshow */
-    overflow: hidden; /* Hide overflow */
-}
-
-/* Slideshow images */
-.mySlides1, .mySlides2, .mySlides3 {
-    display: none; /* Hide all slides initially */
-}
-
-.mySlides1 img, .mySlides2 img, .mySlides3 img {
-    width: 100%; /* Set the width to 100% of the container */
-    max-height: 300px; /* Set a maximum height to make images smaller */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Scale the image to cover the container */
-    object-position: center; /* Center the image within the container */
-}
-
-/* Fade animation with transition */
-.fade {
-    animation: fade 1.5s ease-in-out; /* Keep existing fade animation */
-    opacity: 0; /* Start with opacity 0 */
-    transition: opacity 0.5s ease-in; /* Add transition for opacity */
-}
-
-.mySlides-about, .mySlides1, .mySlides2, .mySlides3 {
-    opacity: 0; /* Initially set opacity to 0 */
-}
-
-/* When active, change opacity to 1 */
-.mySlides-about.show, .mySlides1.show, .mySlides2.show, .mySlides3.show {
-    opacity: 1; /* Fully visible when the class 'show' is added */
-}
-
-/* Footer Container */
+/* Footer styling */
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     background-color: #333;
     color: white;
-    padding: 10px 30px;
+    padding: 10px 20px;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100%; /* Push footer to bottom */
 }
 
-/* Footer Logo */
+/* Footer Styling */
+footer {
+    display: flex;
+    justify-content: space-between; /* Space between social icons and logo */
+    align-items: center;
+    padding: 20px;
+    background-color: #1f1f1f;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Social Media Icons - Left aligned */
+footer a img {
+    max-width: 40px; /* Adjust the size of social icons */
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+footer a img:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Centered Logo Styling */
 .footer-logo {
     display: flex;
     justify-content: center;
-    flex-grow: 1;
+    width: 100%;
 }
 
 .footer-logo img {
-    max-width: 100px;
+    max-width: 100px; /* Adjust the size of the logo */
+    margin: 0 auto; /* Center the logo */
 }
 
-/* Social icons container */
-.social-icons {
-    display: flex;
-    gap: 15px;
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        justify-content: center;
+    }
+
+    .footer-logo {
+        margin-top: 20px; /* Add some spacing above the logo for better visibility */
+    }
 }
 
-.social-icons img {
-    width: 30px;
-    height: 30px;
+
+/* Add responsive styling */
+@media (max-width: 768px) {
+    .container-fluid.d-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo img {
+        margin: 20px 0;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
 }
 
-/* Additional paragraph styling */
-p {
-    margin-top: 10px;
-}
 
 /* Mobile-friendly adjustments */
 @media (max-width: 768px) {
