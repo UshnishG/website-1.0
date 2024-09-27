@@ -249,5 +249,6 @@ p {
     padding-top: 100px;
     margin: auto;
     background-color: #1f1f1f;
+    visibility: hidden;
 }
 
