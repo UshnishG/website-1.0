@@ -10,6 +10,14 @@ html, body {
     flex-direction: column;
 }
 
+.cntct{
+    padding-top: 100px;
+    width: 50vw;
+    justify-content: center;
+    
+    margin: auto;
+}
+
 .contact-info {
     display: flex;
     flex-direction: column; /* Stack items vertically */

@@ -180,12 +180,14 @@ main {
     align-items: center;
     min-height: 100vh; /* Full height section */
     flex-direction: column;
+    padding-top: 50px;
 }
 
 .core-team h1 {
     color: #fff;
     font-size: 50px;
     padding-bottom: 32px;
+    padding-top: 80px;
 }
 
 .team-container {
